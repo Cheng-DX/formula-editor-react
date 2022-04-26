@@ -32,7 +32,7 @@ export default function NavBar() {
               onChange={e => handleImportFiles(e.target, DATA_TAG)}
             />
           </label>
-          <label htmlFor="uploadFile" position-relative>
+          <label htmlFor="uploadFile" className="position-relative">
             <button className={buttonClass}>Formula</button>
             <input
               type="file"
