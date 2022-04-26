@@ -1,10 +1,25 @@
 import { useState } from 'react'
 import EmptyPanel from '@/components/EmptyPanel'
-import { transformText, updateFilterFn, useDisplayedItems } from '@/core'
+import { transformText, updateFilterFn } from '@/core'
+import type { DataItem, FilterFn, FormulaItem } from '@/types'
 import './EditPanel.css'
 
-export default function EditPanel() {
-  const { displayedData, displayedFormula, setFilterFn, formulas, data } = useDisplayedItems()
+interface EditPanelProps {
+  setFilterFn: React.Dispatch<React.SetStateAction<FilterFn>>
+  displayedData: DataItem[]
+  displayedFormula: FormulaItem[]
+  data: DataItem[]
+  formulas: FormulaItem[]
+}
+
+export default function EditPanel(props: EditPanelProps) {
+  const {
+    setFilterFn,
+    displayedData,
+    displayedFormula,
+    data,
+    formulas,
+  } = props
   const [input, setInput] = useState('')
   const [output, setOutput] = useState('')
 

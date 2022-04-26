@@ -1,14 +1,31 @@
+import React from 'react'
 import { clearAllLocalStorage, exportLocalStroage, importFiles } from '@/core'
 import { DATA_TAG, FORMULA_TAG } from '@/util/shared'
+import type { DataItem, FormulaItem } from '@/types'
 import './NavBar.css'
 
-export default function NavBar() {
+interface NavBarProps {
+  setData: React.Dispatch<React.SetStateAction<DataItem[]>>
+  setFormulas: React.Dispatch<React.SetStateAction<FormulaItem[]>>
+}
+
+export default function NavBar(props: NavBarProps) {
+  const { setData, setFormulas } = props
   const buttonClass = 'btn m-inline-2 h-8 text-15px'
 
-  function handleImportFiles(input: HTMLInputElement, tag: string) {
+  async function handleImportFiles(input: HTMLInputElement, tag: string) {
     const files = input.files
-    if (files)
-      importFiles(files, tag)
+    if (files) {
+      const { dataList, formulaList } = await importFiles(files, tag)
+      setData(dataList)
+      setFormulas(formulaList)
+    }
+  }
+
+  function clear() {
+    clearAllLocalStorage()
+    setData([])
+    setFormulas([])
   }
 
   return (
@@ -54,7 +71,7 @@ export default function NavBar() {
         </div >
         <button
           className={buttonClass}
-          onClick={clearAllLocalStorage}
+          onClick={() => clear()}
         >
           Delete
         </button >
