@@ -49,8 +49,8 @@ export function clearAllLocalStorage() {
 }
 
 export function exportLocalStroage() {
-  _exportJSON(JSON.stringify(localStorage.getItem(DATA_TAG)), DATA_TAG)
-  _exportJSON(JSON.stringify(localStorage.getItem(FORMULA_TAG)), FORMULA_TAG)
+  _exportJSON(localStorage.getItem(DATA_TAG)!, DATA_TAG)
+  _exportJSON(localStorage.getItem(FORMULA_TAG)!, FORMULA_TAG)
 }
 
 function _exportJSON(json: string, filename: string) {
