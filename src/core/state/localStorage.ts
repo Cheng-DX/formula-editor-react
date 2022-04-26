@@ -63,22 +63,7 @@ function _exportJSON(json: string, filename: string) {
 export function importFiles(files: FileList, tag: string) {
   Array.from(files).forEach(async file => {
     const json = await file.text()
-    let filename = file.name.slice(0, -5)
-    if (!filename.endsWith(tag))
-      filename += tag
-
-    if (localStorage.getItem(filename)) {
-      // eslint-disable-next-line no-alert
-      // TODO: remove confirm
-      const result = confirm(`${filename}已存在,覆盖(Y)或追加(N)`)
-      if (result)
-        localStorage.setItem(filename, json)
-      else
-        appendItem(filename, JSON.parse(json))
-    }
-    else {
-      localStorage.setItem(filename, json)
-    }
+    localStorage.setItem(tag, json)
     return initLocalStorage()
   })
 }
