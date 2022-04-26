@@ -34,7 +34,7 @@ export default function NavBar(props: NavBarProps) {
         <div className="flex items-center wp-70">
           <a
             className="icon-btn color-black h-7 w-7 i-carbon-logo-github"
-            href="https://github.com/Cheng-DX/formula-tool"
+            href="https://github.com/Cheng-DX/formula-editor-react"
             target="_blank"
             title="GitHub"
             rel="noreferrer"
