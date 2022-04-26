@@ -1,0 +1,17 @@
+.header {
+  height: 50px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-shadow: 0px 2px 4px #0000005d;
+}
+
+.file-input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  height: 2.5rem;
+  width: 159px;
+  cursor: pointer;
+}

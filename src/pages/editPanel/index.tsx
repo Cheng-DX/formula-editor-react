@@ -78,7 +78,7 @@ export default function EditPanel() {
     formulaPanel = (<EmptyPanel text="No formula" />)
   }
   return (
-    <>
+    <div className="main">
       <div className="flex hp-100">
         <div className="flex hp-100 wp-25 color-white flex-col items-center scroll-y">
           {dataPanel}
@@ -96,6 +96,6 @@ export default function EditPanel() {
           {formulaPanel}
         </div>
       </div>
-    </>
+    </div>
   )
 }

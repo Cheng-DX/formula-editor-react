@@ -1,13 +1,17 @@
-.root {
+.app {
   height: calc(100vh - 60px);
   margin-top: 50px;
 }
+
 .header {
+  height: 50px;
   position: absolute;
   top: 0;
   left: 0;
   box-shadow: 0px 2px 4px #0000005d;
 }
+
 .main {
+  margin-top: 50px;
   height: 100%;
 }
