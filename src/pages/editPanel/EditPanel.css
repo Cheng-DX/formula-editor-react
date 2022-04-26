@@ -1,25 +1,43 @@
+.data-card-item {
+  width: 30%;
+  text-align: center;
+}
+
+.data-card-item__name {
+  width: 40%;
+  text-align: center;
+}
 
 @media (max-width: 768px) {
   .data-card {
     flex-direction: column;
   }
+
   .data-card-item {
     width: 100%;
   }
+
+  .data-card-item__name {
+    width: 100%;
+  }
 }
+
 .data-card {
   background-color: #548ca8;
 }
+
 .data-card-item {
   color: #fff;
   text-align: center;
 }
+
 .title {
   background-color: #167f9f;
   color: #fff;
   border-top-left-radius: 4px;
   padding: 5px;
 }
+
 .area {
   height: 50%;
   width: calc(100% - 20px);
