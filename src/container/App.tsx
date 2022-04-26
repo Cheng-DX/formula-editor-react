@@ -1,10 +1,16 @@
-import 'uno.css'
+import EditPanel from '@/pages/editPanel'
+import './App.css'
 
-function App() {
+export default function App() {
   return (
-    <div className="h-200px w-200px bg-red">
-      <strong>Hello World</strong>
+    <div className="root">
+      <div className="h-50px header">
+        Header
+      </div>
+      <div className="mt-50px main">
+        <EditPanel />
+      </div>
     </div>
   )
 }
-export default App
+
