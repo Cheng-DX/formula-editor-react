@@ -5,8 +5,8 @@ import type { DataItem, FilterFn, FormulaItem } from '@/types'
 export function useDisplayedItems() {
   const { dataList, formulaList } = initLocalStorage()
 
-  const [data, setData] = useState<DataItem[]>(dataList)
-  const [formula, setFormula] = useState<FormulaItem[]>(formulaList)
+  const [data] = useState<DataItem[]>(dataList)
+  const [formulas] = useState<FormulaItem[]>(formulaList)
 
   const [filterFn, setFilterFn] = useState<FilterFn>({
     data: () => true,
@@ -16,16 +16,16 @@ export function useDisplayedItems() {
   const [displayedFormula, setDisplayedFormula] = useState<FormulaItem[]>([])
 
   useEffect(() => {
-    setDisplayedFormula(formula.filter(filterFn.formula))
-  }, [formula, filterFn])
+    setDisplayedFormula(formulas.filter(filterFn.formula))
+  }, [formulas, filterFn])
 
   useEffect(() => {
     setDisplayedData(data.filter(filterFn.data))
   }, [data, filterFn])
 
   return {
-    setData,
-    setFormula,
+    formulas,
+    data,
     setFilterFn,
     displayedData,
     displayedFormula,
