@@ -28,7 +28,6 @@ export default function EditPanel() {
             className="cursor-pointer
             flex-center
             p-10px
-            mt-5px
             border
             border-gray-300
             r-5
@@ -55,10 +54,10 @@ export default function EditPanel() {
           key={item.code}
           className="flex
           flex-col
-          mt-5px
           justify-around
           border
-          r-5"
+          r-5
+          formula-card"
           style={{ border: '1px solid #167f9f' }}
         >
           <div className="cursor-pointer title" onClick={() => insert(item.code)}>

@@ -28,12 +28,17 @@
 }
 
 .data-card {
+  margin-top: 5px;
   background-color: #548ca8;
 }
 
 .data-card-item {
   color: #fff;
   text-align: center;
+}
+
+.formula-card {
+  margin-top: 5px;
 }
 
 .title {

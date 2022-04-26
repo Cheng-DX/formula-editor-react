@@ -11,56 +11,53 @@ export default function NavBar() {
       importFiles(files, tag)
   }
 
-  return (<header className="wp-100">
-    <div className="h-30px p-10px flex justify-between items-center header">
-      <div className="flex items-center wp-70">
-        <a
-          className="icon-btn
-          color-black
-          h-7
-          w-7
-          i-carbon-logo-github"
-          href="https://github.com/Cheng-DX/formula-tool"
-          target="_blank"
-          title="GitHub"
-          rel="noreferrer"
-        />
-        <label htmlFor="uploadFile" className="position-relative">
-          <button className={buttonClass}>Data</button>
-          <input
-            type="file"
-            multiple
-            accept=".json"
-            className="file-input"
-            onChange={e => handleImportFiles(e.target, DATA_TAG)}
+  return (
+    <header className="wp-100 header">
+      <div className="h-30px p-10px flex justify-between items-center ">
+        <div className="flex items-center wp-70">
+          <a
+            className="icon-btn color-black h-7 w-7 i-carbon-logo-github"
+            href="https://github.com/Cheng-DX/formula-tool"
+            target="_blank"
+            title="GitHub"
+            rel="noreferrer"
           />
-        </label>
-        <label htmlFor="uploadFile" position-relative>
-          <button className={buttonClass}>Formula</button>
-          <input
-            type="file"
-            multiple
-            accept=".json"
-            className="file-input"
-            onChange={e => handleImportFiles(e.target, FORMULA_TAG)}
-          />
-        </label>
-        <button className={buttonClass} onClick={exportLocalStroage} >
-          Export
-        </button >
-        {/* <button className={buttonClass} onClick={() => { useTips = !useTips }} >
+          <label htmlFor="uploadFile" className="position-relative">
+            <button className={buttonClass}>Data</button>
+            <input
+              type="file"
+              multiple
+              accept=".json"
+              className="file-input"
+              onChange={e => handleImportFiles(e.target, DATA_TAG)}
+            />
+          </label>
+          <label htmlFor="uploadFile" position-relative>
+            <button className={buttonClass}>Formula</button>
+            <input
+              type="file"
+              multiple
+              accept=".json"
+              className="file-input"
+              onChange={e => handleImportFiles(e.target, FORMULA_TAG)}
+            />
+          </label>
+          <button className={buttonClass} onClick={exportLocalStroage} >
+            Export
+          </button >
+          {/* <button className={buttonClass} onClick={() => { useTips = !useTips }} >
           {tipsState}
         </button > */}
-        {/* <button className={buttonClass} onClick={() => addPanelVisible = true} >
+          {/* <button className={buttonClass} onClick={() => addPanelVisible = true} >
           Add
         </button > */}
+        </div >
+        <button
+          className={buttonClass}
+          onClick={clearAllLocalStorage}
+        >
+          Delete
+        </button >
       </div >
-      <button
-        className={buttonClass}
-        onClick={clearAllLocalStorage}
-      >
-        Delete
-      </button >
-    </div >
-  </header >)
+    </header >)
 }
