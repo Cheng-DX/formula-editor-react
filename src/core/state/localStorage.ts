@@ -60,12 +60,12 @@ function _exportJSON(json: string, filename: string) {
   a.click()
 }
 
-export function importFiles(files: FileList, tag: string) {
-  Array.from(files).forEach(async file => {
+export async function importFiles(files: FileList, tag: string) {
+  for (const file of files) {
     const json = await file.text()
     localStorage.setItem(tag, json)
-    return initLocalStorage()
-  })
+  }
+  return initLocalStorage()
 }
 
 export function appendItem(tag: string, newItem: DataItem | FormulaItem) {
