@@ -1,16 +1,23 @@
 import { useState } from 'react'
 import EmptyPanel from '@/components/EmptyPanel'
-import { useDisplayedItems } from '@/core'
+import { transformText, updateFilterFn, useDisplayedItems } from '@/core'
 import './EditPanel.css'
 
 export default function EditPanel() {
-  const { displayedData, displayedFormula } = useDisplayedItems()
+  const { displayedData, displayedFormula, setFilterFn, formulas, data } = useDisplayedItems()
   const [input, setInput] = useState('')
   const [output, setOutput] = useState('')
 
   function insert(code: string) {
     setInput(input => input + code)
   }
+  function onInput(text: string) {
+    setInput(text)
+    setFilterFn(updateFilterFn(text))
+    const result = transformText(text, formulas, data)
+    setOutput(result)
+  }
+
   let dataPanel = null
   if (displayedData.length > 0) {
     dataPanel = (
@@ -20,7 +27,6 @@ export default function EditPanel() {
             key={item.code}
             className="cursor-pointer
             flex-center
-            justify-around
             p-10px
             mt-5px
             border
@@ -29,9 +35,9 @@ export default function EditPanel() {
             data-card"
             onClick={() => insert(item.code)}
           >
-            <span className="data-card-item wp-30">{item.dataId}</span>
-            <span className="data-card-item wp-30">{item.code}</span>
-            <span className="data-card-item wp-40">{item.name}</span>
+            <span className="data-card-item">{item.dataId}</span>
+            <span className="data-card-item">{item.code}</span>
+            <span className="data-card-item__name">{item.name}</span>
           </div>
         ))}
       </div >
@@ -78,7 +84,7 @@ export default function EditPanel() {
           {dataPanel}
         </div>
         <div className="flex flex-col items-center flex-grow m-10px r-10">
-          <textarea value={input} className="area" onChange={e => setInput(e.target.value)} />
+          <textarea value={input} className="area" onChange={e => onInput(e.target.value)} />
           <div>
             <button className="btn bg-red hover:bg-red-500 h-30px">
               Clear
