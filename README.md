@@ -1,7 +1,7 @@
 <br>
 
 <p align="center">
-<img style="height: 100px" src="src/assets/icon.png"/>
+<img style="height: 100px" src="src/assets/imgs/icon.png"/>
 </p>
 
 <h1 align="center">FORMULA EDITOR REACT</h1>
